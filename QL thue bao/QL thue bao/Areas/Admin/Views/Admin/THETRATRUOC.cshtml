@@ -1,0 +1,66 @@
+﻿@model IEnumerable<QL_thue_bao.Models.THETRATRUOC>
+
+@{
+    ViewBag.Title = "THETRATRUOC";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THETRATRUOC</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>SỐ SERI</th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoThe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DungLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayBatDau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayKetThuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Seri</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoThe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DungLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayBatDau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayKetThuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Seri }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Seri }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Seri })
+        </td>
+    </tr>
+}
+
+</table>

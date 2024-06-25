@@ -1,0 +1,78 @@
+﻿@model IEnumerable<QL_thue_bao.Models.TRASAU>
+
+@{
+    ViewBag.Title = "TRASAU";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TRASAU</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>ID TRA SAU</th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoDienThoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenKhachHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayBatDau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayKetThuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaTienTraSau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongTienTra)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.IdTraSau</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoDienThoai)
+        </td>
+        <td>
+            @item.TenKhachHang
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayBatDau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayKetThuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaTienTraSau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TienNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongTienTra)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdTraSau }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdTraSau }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdTraSau })
+        </td>
+    </tr>
+}
+
+</table>

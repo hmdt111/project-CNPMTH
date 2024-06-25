@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLTHUEBAOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DIENTHOAI">
+    <Key>
+      <PropertyRef Name="SoDienThoai" />
+    </Key>
+    <Property Name="SoDienThoai" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="LoaiThueBao" Type="int" />
+    <Property Name="TinhTrang" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LOAITHUEBAO">
+    <Key>
+      <PropertyRef Name="IdLoai" />
+    </Key>
+    <Property Name="IdLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="THETRATRUOC">
+    <Key>
+      <PropertyRef Name="Seri" />
+    </Key>
+    <Property Name="Seri" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SoThe" Type="char" MaxLength="10" />
+    <Property Name="GiaTien" Type="real" />
+    <Property Name="DungLuong" Type="real" />
+    <Property Name="NgayBatDau" Type="date" />
+    <Property Name="NgayKetThuc" Type="date" />
+    <Property Name="TinhTrang" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="THUEBAO">
+    <Key>
+      <PropertyRef Name="IdThueBao" />
+    </Key>
+    <Property Name="IdThueBao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayDangKi" Type="date" />
+    <Property Name="TenKhachHang" Type="nvarchar(max)" />
+    <Property Name="SoCCCD" Type="char" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar(max)" />
+    <Property Name="SoDienThoai" Type="char" MaxLength="10" />
+    <Property Name="PhiDangKi" Type="real" />
+    <Property Name="SoThe" Type="char" MaxLength="10" />
+    <Property Name="Seri" Type="char" MaxLength="10" />
+    <Property Name="NgayBatDau" Type="date" />
+    <Property Name="DungLuong" Type="real" />
+    <Property Name="NgayKetThuc" Type="date" />
+    <Property Name="IdTraSau" Type="int" />
+    <Property Name="MatKhau" Type="nvarchar(max)" />
+    <Property Name="TenLoaiThueBao" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TRASAU">
+    <Key>
+      <PropertyRef Name="IdTraSau" />
+    </Key>
+    <Property Name="IdTraSau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoDienThoai" Type="char" MaxLength="10" />
+    <Property Name="TenKhachHang" Type="nvarchar(max)" />
+    <Property Name="NgayBatDau" Type="date" />
+    <Property Name="NgayKetThuc" Type="date" />
+    <Property Name="GiaTienTraSau" Type="real" />
+    <Property Name="TienNo" Type="real" />
+    <Property Name="TinhTrang" Type="nvarchar(max)" />
+    <Property Name="TongTienTra" Type="real" />
+  </EntityType>
+  <Association Name="FK_DIENTHOAI_LOAITHUEBAO">
+    <End Role="LOAITHUEBAO" Type="Self.LOAITHUEBAO" Multiplicity="0..1" />
+    <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAITHUEBAO">
+        <PropertyRef Name="IdLoai" />
+      </Principal>
+      <Dependent Role="DIENTHOAI">
+        <PropertyRef Name="LoaiThueBao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THUEBAO_DIENTHOAI">
+    <End Role="DIENTHOAI" Type="Self.DIENTHOAI" Multiplicity="0..1" />
+    <End Role="THUEBAO" Type="Self.THUEBAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENTHOAI">
+        <PropertyRef Name="SoDienThoai" />
+      </Principal>
+      <Dependent Role="THUEBAO">
+        <PropertyRef Name="SoDienThoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THUEBAO_THETRATRUOC">
+    <End Role="THETRATRUOC" Type="Self.THETRATRUOC" Multiplicity="0..1" />
+    <End Role="THUEBAO" Type="Self.THUEBAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THETRATRUOC">
+        <PropertyRef Name="Seri" />
+      </Principal>
+      <Dependent Role="THUEBAO">
+        <PropertyRef Name="Seri" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THUEBAO_TRASAU">
+    <End Role="TRASAU" Type="Self.TRASAU" Multiplicity="0..1" />
+    <End Role="THUEBAO" Type="Self.THUEBAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRASAU">
+        <PropertyRef Name="IdTraSau" />
+      </Principal>
+      <Dependent Role="THUEBAO">
+        <PropertyRef Name="IdTraSau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLTHUEBAOModelStoreContainer">
+    <EntitySet Name="DIENTHOAI" EntityType="Self.DIENTHOAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAITHUEBAO" EntityType="Self.LOAITHUEBAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THETRATRUOC" EntityType="Self.THETRATRUOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THUEBAO" EntityType="Self.THUEBAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRASAU" EntityType="Self.TRASAU" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DIENTHOAI_LOAITHUEBAO" Association="Self.FK_DIENTHOAI_LOAITHUEBAO">
+      <End Role="LOAITHUEBAO" EntitySet="LOAITHUEBAO" />
+      <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THUEBAO_DIENTHOAI" Association="Self.FK_THUEBAO_DIENTHOAI">
+      <End Role="DIENTHOAI" EntitySet="DIENTHOAI" />
+      <End Role="THUEBAO" EntitySet="THUEBAO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THUEBAO_THETRATRUOC" Association="Self.FK_THUEBAO_THETRATRUOC">
+      <End Role="THETRATRUOC" EntitySet="THETRATRUOC" />
+      <End Role="THUEBAO" EntitySet="THUEBAO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THUEBAO_TRASAU" Association="Self.FK_THUEBAO_TRASAU">
+      <End Role="TRASAU" EntitySet="TRASAU" />
+      <End Role="THUEBAO" EntitySet="THUEBAO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

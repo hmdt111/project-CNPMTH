@@ -1,0 +1,42 @@
+﻿@model IEnumerable<QL_thue_bao.Models.DIENTHOAI>
+
+@{
+    ViewBag.Title = "DIENTHOAI";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DIENTHOAI</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>SDT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOAITHUEBAO1.TenLoai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.SoDienThoai</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOAITHUEBAO1.TenLoai)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SoDienThoai }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SoDienThoai }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SoDienThoai })
+        </td>
+    </tr>
+}
+
+</table>

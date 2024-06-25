@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7553fca6dffd4fa18cf7561c7f1dadf6" Name="Diagram1">
+        <EntityTypeShape EntityType="QLTHUEBAOModel.DIENTHOAI" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHUEBAOModel.LOAITHUEBAO" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHUEBAOModel.sysdiagram" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHUEBAOModel.THETRATRUOC" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHUEBAOModel.THUEBAO" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHUEBAOModel.TRASAU" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="QLTHUEBAOModel.FK_DIENTHOAI_LOAITHUEBAO" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHUEBAOModel.FK_THUEBAO_DIENTHOAI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHUEBAOModel.FK_THUEBAO_THETRATRUOC" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHUEBAOModel.FK_THUEBAO_TRASAU" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
